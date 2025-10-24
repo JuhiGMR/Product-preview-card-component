@@ -1,0 +1,184 @@
+// Colors
+$primary-green-500: hsl(158, 36%, 37%);
+$primary-green-700: hsl(158, 42%, 18%);
+$neutral-black: hsl(212, 21%, 14%);
+$neutral-grey: hsl(228, 12%, 48%);
+$neutral-cream: hsl(30, 38%, 92%);
+$neutral-white: hsl(0, 0%, 100%);
+
+// Typography
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Fraunces', serif;
+$font-size-body: 14px;
+
+// Spacing
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// Breakpoints
+$breakpoint-mobile: 600px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s) {
+  transition: $property $duration ease;
+}
+
+// Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $neutral-cream;
+  color: $neutral-grey;
+  line-height: 1.6;
+  padding: 20px;
+  @include flex-center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+// Card Component
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: $neutral-white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+// Image Container
+.image-container {
+  flex: 1.3;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Details Section
+.details {
+  flex: 1;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  p {
+    margin: $spacing-sm 0;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-family: $font-secondary;
+    font-size: 36px;
+    line-height: 1;
+    color: #111;
+    margin-bottom: $spacing-md;
+    margin-top: $spacing-md;
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin: $spacing-md 0;
+
+    .current {
+      font-family: $font-secondary;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3d8168;
+    }
+
+    .old {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  }
+
+  button {
+    background-color: #3d8168;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    @include transition(background);
+    font-family: $font-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+
+    &:hover {
+      background-color: #1a4031;
+    }
+  }
+}
+
+// Category Label
+.category {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+// Attribution
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: $spacing-md;
+  padding: $spacing-md;
+  color: $neutral-grey;
+  font-family: $font-primary;
+
+  a {
+    color: $primary-green-500;
+    text-decoration: none;
+    font-weight: 600;
+    @include transition(color);
+
+    &:hover {
+      color: $primary-green-700;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-mobile) {
+  .card {
+    flex-direction: column;
+    max-width: 90%;
+  }
+}
