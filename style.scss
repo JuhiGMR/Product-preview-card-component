@@ -176,9 +176,78 @@ body {
 }
 
 // Responsive Design
-@media (max-width: $breakpoint-mobile) {
+// Responsive Design
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
   .card {
     flex-direction: column;
-    max-width: 90%;
+    max-width: 343px;
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .image-container {
+    flex: none;
+    width: 100%;
+    height: 240px;
+
+    img {
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  .details {
+    flex: none;
+    width: 100%;
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0.75rem 0;
+    }
+
+    .price {
+      margin: 1.25rem 0;
+
+      .current {
+        font-size: 2rem;
+      }
+
+      .old {
+        font-size: 13px;
+      }
+    }
+
+    button {
+      padding: 1rem;
+      font-size: 14px;
+      font-weight: 700;
+      gap: 0.75rem;
+    }
+  }
+
+  .category {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+  }
+
+  .attribution {
+    font-size: 11px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
   }
 }
